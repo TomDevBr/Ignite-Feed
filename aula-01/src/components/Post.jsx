@@ -27,13 +27,30 @@ export function Post({ author, publishedAt, content }) {
     
 
       function handleNewCommentChange() {
+      
         setNewCommentText(event.target.value )
+
+        event.target.setCustomChange('')
+      }
+
+      function handleNewCommentInvalid() {
+        event.target.setCustomValidity('Esse campo é obrigatório!');
+      }
+
+      function deleteComment(commentToDelete){
+         const commentsWithoutDeletedOne = comments.filter(comment => {
+            return comment !== commentToDelete;
+         })
+
+         setComments(commentsWithoutDeletedOne)
       }
 
       const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
         locale: ptBR,
         addSuffix: true,    
       })
+
+      const isNewCommentEmpyt = newCommentText.length === 0;
     return (
         <article className={styles.post}>
             <header>
@@ -64,15 +81,21 @@ export function Post({ author, publishedAt, content }) {
 
             <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
-                <textarea name="comment" value={newCommentText} onChange={handleNewCommentChange} placeholder='Deixe um comentário'></textarea>
+                <textarea name="comment" 
+                    value={newCommentText} 
+                    onChange={handleNewCommentChange} 
+                    placeholder='Deixe um comentário'
+                    required
+                    onInvalid={handleNewCommentInvalid}
+                />
                 <footer>
-                    <button type='submmit'>Publicar</button>
+                    <button type='submmit' disabled={isNewCommentEmpyt}>Publicar</button>
                 </footer>
             </form>
 
             <div className={styles.commentList}>
                 { comments.map(comment => {
-                    return <Comment key={comment} content={comment}/>
+                    return <Comment key={comment} content={comment} onDeleteComment={deleteComment}/>
                 })}
             </div>
         </article>
