@@ -3,7 +3,8 @@
 Projeto desenvolvido para completar o primeiro desafio do ignite da RocketSeat.
 
 
-#Tecnologias utilizadas
+ 
+# Tecnologias utilizadas
 HTML 
 CSS
 TypeScript
@@ -14,12 +15,19 @@ Node
 
 # clonar repositório
 
+https://github.com/TomDevBr/Ignite-Feed.git
+
 # instalar dependências
+
 npm install
 
 # executar o projeto
+
 npm run dev
 
-Autor
+# Autor
+
 Tomás de Jesus Oliveira Calheiros 
+
+
 linkedin: https://www.linkedin.com/in/tomás-de-jesus-oliveira-calheiros-a711191b5
