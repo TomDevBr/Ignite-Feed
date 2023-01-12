@@ -1,14 +1,11 @@
 # Ignite-Feed
-
-Projeto desenvolvido para completar o primeiro desafio do ignite da RocketSeat.
-
-
  
 # Tecnologias utilizadas
 HTML 
 CSS
 TypeScript
 React
+Js
 
 Pré-requisitos: 
 Node
